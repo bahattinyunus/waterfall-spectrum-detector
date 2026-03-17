@@ -1,41 +1,52 @@
-﻿# 📡 WATERSPECT: Şelale Spektrum Dedektörü
-
-> [!IMPORTANT]
-> **SİNYAL İSTİHBARATI (SIGINT) EĞİTİM VE ANALİZ MODÜLÜ**
-> Bu depo, elektronik harp simülasyonu ve gerçek zamanlı sinyal analizi için tasarlanmış yüksek performanslı bir spektrum dedektörü içerir.
+﻿# 📡 WATERSPECT: Spektrumun Sessiz Gözcüsü
 
 ![WATERSPECT Banner](assets/banner.png)
 
-## 🛠️ Teknik Genel Bakış
+> [!CAUTION]
+> **OPERASYONEL BİLGİ:** Bu sistem, elektromanyetik spektrumdaki görünmez savaşın bir simülasyonudur. Sinyaller sadece veri değildir; onlar birer "imza"dır.
 
-WATERSPECT, hem simülasyon hem de gerçek dünya verileriyle çalışabilen hibrit bir analiz aracıdır. **Web Audio API** entegrasyonu sayesinde mikrofonunuzdan gelen sesleri gerçek zamanlı olarak spektrumda görebilirsiniz.
+## 🏹 Senaryo: Görünmeyeni Görmek
 
-1.  **Gerçek Zamanlı FFT Analizörü**: Frekans spektrumu üzerindeki anlık sinyal gücünü gösteren yüksek hızlı çizgi grafik.
-2.  **Tarihsel Şelale Spektrogramı**: Sinyal modellerini, kaymaları ve sürekliliği ortaya çıkaran zaman-frekans eksenli kayan ekran.
-3.  **EH Arayüzü**: CRT tarama çizgileri, TRL-7 doğrulama rozeti ve siber-estetik efektler.
+Modern harp meydanı artık sadece karada, denizde veya havada değil; **elektromanyetik spektrumun** her hertzinde yaşanıyor. Düşman radar sistemleri, telsiz haberleşmeleri ve insansız hava araçları (İHA) sürekli olarak yayın yaparak iz bırakır. Ancak bu yayınlar genellikle gürültü altına gizlenir veya çok kısa süreli (LPI - Low Probability of Intercept) gerçekleşir.
 
-## 🚀 Öne Çıkan Özellikler
+**WATERSPECT**, bu karmaşanın içinden anlamlı istihbaratı çekip çıkarmak için tasarlanmış bir **Sinyal İstihbaratı (SIGINT)** arayüzüdür. Operatör olarak göreviniz, gürültü tabanının üzerindeki her bir pik noktasını analiz etmek ve bu sinyallerin kime ait olduğunu, ne amaçla yayıldığını anlamaktır.
 
--   **Çift Modlu Çalışma**: SİMÜLASYON ve CANLI SİNYAL (Audio Input) modları.
--   **Gelişmiş Sinyal Tipleri**: Sabit, Frekans Atlama (Frequency Hopping) ve Pulsar modülasyonları.
--   **Kullanıcı Denetimi**: Spektrum kazancı, gürültü tabanı, eşik değeri ve şelale hızı ayarları.
--   **Otomatik Günlükleme**: Tespit edilen frekans tepelerinin zaman damgalı kaydı.
--   **Askeri Standart (TR)**: SIGINT/ELINT terminolojisine tam uyumlu Türkçe yerlileştirme.
+---
 
-## 📖 Kullanım Kılavuzu
+## 🔬 Olayın Matematiği: FFT ve Şelale Grafiği
 
-1.  `index.html` dosyasını tarayıcıda açın.
-2.  **KAYNAK** menüsünden "CANLI SİNYAL"i seçerek mikrofonunuzu bağlayın (İzin gereklidir).
-3.  **EŞİK DEĞERİ**ni ayarlayarak otomatik sinyal tespitini başlatın.
-4.  **HIZ** çubuğu ile şelale grafiğinin akışını optimize edin.
+Bu projede kullanılan iki temel görselleştirme tekniği, sinyal işlemenin kalbidir:
 
-## ⚡ Gelişmiş Özellikler (TRL-7)
+### 1. Hızlı Fourier Dönüşümü (FFT) - *Anlık Güç*
+Zaman düzlemindeki karmaşık ses verilerini, frekans düzlemine dönüştürür. 
+- **Mantık:** Gelen sinyali "kimyasal elementlerine" ayırmak gibidir. Hangi frekansta ne kadar güç (enerji) olduğunu bir çizgi grafik olarak görürsünüz.
+- **Kullanım:** Bir radyo istasyonunun tam frekansını veya bir motorun çıkardığı gürültünün karakteristiğini burada tespit edersiniz.
 
-Proje, operasyonel ortamda sistem doğrulaması (TRL-7) aşamasındadır. Yüksek performanslı canvas rendering sayesinde düşük donanımlı cihazlarda bile 60 FPS akıcılık sağlar.
+### 2. Şelale Spektrogramı (Waterfall) - *Spektral Hafıza*
+Spektrumun zaman içindeki geçmişini kaydeder.
+- **Mantık:** FFT grafiği sürekli güncellenirken, eski veriler aşağı doğru kayar. Renkler (Isı Haritası) sinyal gücünü temsil eder.
+- **Neden Önemli?** 
+    - **Frekans Atlama (Frequency Hopping):** Sinyal spektrogramda kesik çizgiler şeklinde sağa sola zıplıyorsa, bu düşmanın frekans atlamalı (hopped) bir haberleşme kullandığını gösterir.
+    - **Sinyal Kayması (Drift):** Bir sinyalin frekansı yavaşça değişiyorsa (eğik çizgi), bu bir Doppler kayması veya istikrarsız bir vericinin işareti olabilir.
+
+---
+
+## 🦾 Operasyonel Özellikler
+
+-   **📡 Hibrit Veri Kaynağı:** İster yapay zeka tarafından üretilen karmaşık **simülasyon** sinyallerini, isterseniz mikrofonunuzdan gelen **gerçek dünya** seslerini analiz edin.
+-   **🎯 Otomatik Hedef Tespiti:** Tanımladığınız "Eşik Değeri"ni aşan her yayın, sistem tarafından otomatik olarak "TEPE" olarak işaretlenir ve koordinatları (frekansı) günlüğe kaydedilir.
+-   **⚡ Hız Kontrolü:** Şelale akışını hızlandırarak yüksek yoğunluklu taramalar yapabilir veya yavaşlatarak çok zayıf sinyallerin (LPI) izini sürebilirsiniz.
+-   **📺 CRT Restorasyonu:** Operatörlerin göz yorgunluğunu azaltmak ve odaklanmayı artırmak için tasarlanmış nostaljik ama yüksek teknolojili tarama çizgileri ve flicker efektleri.
+
+## 📖 Nasıl Kullanılır?
+
+1.  **Sinyal Yakalama:** `KAYNAK` menüsünden "CANLI SİNYAL"i seçin. Etraftaki konuşmaların, ıslık seslerinin veya müziğin spektrumda nasıl birer "parmak izi" bıraktığını izleyin.
+2.  **Filtreleme:** `EŞİK DEĞERİ` çubuğunu grafik üzerindeki kırmızı çizginin hemen üzerine getirin. Bu, sadece gerçek sinyallerin tespit edilmesini sağlar.
+3.  **Analiz:** `MODÜLASYON TİPİ`ni "Frekans Atlamalı" yapın ve şelale üzerindeki örüntüleri incelemeye başlayın.
 
 ---
 
 ### 🏛️ Geliştiren: [Bahattin Yunus](https://github.com/bahattinyunus)
 *Elektronik Harp ve Savunma Sistemleri Meraklısı*
 
-**TASNİF DIŞI // SADECE EĞİTİM VE ANALİZ AMAÇLIDIR**
+**TASNİF DIŞI // BU PROJE BİR EĞİTİM VE SİMÜLASYON STANDIDIR.**
