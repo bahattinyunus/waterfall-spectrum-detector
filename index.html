@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATERSPECT | Spectrum Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Outfit:wght@300;600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span class="accent">WATERSPECT</span> // SIGINT-X
+        </div>
+        <div class="telemetry">
+            <div class="tel-item">SCAN: <span id="scan-status" class="active">ACTIVE</span></div>
+            <div class="tel-item">FREQ: <span id="freq-range">0.0 - 100.0 MHz</span></div>
+            <div class="tel-item">PEAK: <span id="peak-freq" class="val">---</span></div>
+        </div>
+    </div>
+
+    <main class="dashboard">
+        <section class="spectrum-module">
+            <div class="module-header">
+                <h3>REAL-TIME FFT ANALYSIS</h3>
+                <div class="controls">
+                    <button id="toggle-scan">PAUSE</button>
+                    <button id="reset-peak">RESET PEAK</button>
+                </div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="spectrum-canvas"></canvas>
+            </div>
+        </section>
+
+        <section class="waterfall-module">
+            <div class="module-header">
+                <h3>HISTORICAL WATERFALL SPECTROGRAM</h3>
+            </div>
+            <div class="canvas-container">
+                <canvas id="waterfall-canvas"></canvas>
+            </div>
+        </section>
+
+        <section class="control-panel">
+            <div class="panel-section">
+                <h4>SIGNAL GENERATOR</h4>
+                <div class="control-group">
+                    <label>SENSITIVITY (GAIN)</label>
+                    <input type="range" id="gain-slider" min="0" max="100" value="50">
+                </div>
+                <div class="control-group">
+                    <label>NOISE FLOOR</label>
+                    <input type="range" id="noise-slider" min="0" max="50" value="15">
+                </div>
+            </div>
+            <div class="panel-section">
+                <h4>SIGNAL DETECTION</h4>
+                <div class="control-group">
+                    <label>THRESHOLD</label>
+                    <input type="range" id="threshold-slider" min="0" max="100" value="40">
+                </div>
+                <div id="detection-list" class="log-container">
+                    <!-- Detected signals will appear here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer">
+        UNCLASSIFIED // FOR SIGINT TRAINING PURPOSES ONLY // v1.0.0
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
