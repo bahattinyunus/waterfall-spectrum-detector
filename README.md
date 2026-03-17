@@ -1,41 +1,41 @@
 ﻿# 📡 WATERSPECT: Şelale Spektrum Dedektörü
 
 > [!IMPORTANT]
-> **SİNYAL İSTİHBARATI (SIGINT) EĞİTİM MODÜLÜ**
-> Bu depo, elektronik harp simülasyonu ve sinyal tespit eğitimi için tasarlanmış yüksek performanslı, web tabanlı bir spektrum analiz aracı içerir.
+> **SİNYAL İSTİHBARATI (SIGINT) EĞİTİM VE ANALİZ MODÜLÜ**
+> Bu depo, elektronik harp simülasyonu ve gerçek zamanlı sinyal analizi için tasarlanmış yüksek performanslı bir spektrum dedektörü içerir.
 
-![WATERSPECT Banner](https://raw.githubusercontent.com/bahattinyunus/waterfall-spectrum-detector/main/assets/banner.png) *(Not: Proje görseli temsilidir)*
+![WATERSPECT Banner](assets/banner.png)
 
 ## 🛠️ Teknik Genel Bakış
 
-WATERSPECT, yüksek yoğunluklu sinyal verilerinin düşük gecikmeli işlenmesini sağlamak için **Vanilla JavaScript** ve **HTML5 Canvas** kullanılarak geliştirilmiştir. Gerçek zamanlı Hızlı Fourier Dönüşümü (FFT) analizini simüle ederek çift görünümlü bir arayüz sunar:
+WATERSPECT, hem simülasyon hem de gerçek dünya verileriyle çalışabilen hibrit bir analiz aracıdır. **Web Audio API** entegrasyonu sayesinde mikrofonunuzdan gelen sesleri gerçek zamanlı olarak spektrumda görebilirsiniz.
 
 1.  **Gerçek Zamanlı FFT Analizörü**: Frekans spektrumu üzerindeki anlık sinyal gücünü gösteren yüksek hızlı çizgi grafik.
-2.  **Tarihsel Şelale Spektrogramı**: Sinyal modellerini, kaymaları ve sürekliliği ortaya çıkaran, zaman-frekans eksenli kayan ekran.
+2.  **Tarihsel Şelale Spektrogramı**: Sinyal modellerini, kaymaları ve sürekliliği ortaya çıkaran zaman-frekans eksenli kayan ekran.
+3.  **EH Arayüzü**: CRT tarama çizgileri, TRL-7 doğrulama rozeti ve siber-estetik efektler.
 
 ## 🚀 Öne Çıkan Özellikler
 
--   **Askeri Standartta UI**: "Siber-Yeşil" ve "Amber" vurgulu, optimize edilmiş karanlık tema dashboard.
--   **Türkçe Yerlileştirme**: Tüm teknik terimler ve arayüz elemanları Türkçe SIGINT/ELINT standartlarına uygundur.
--   **Sinyal Modülasyon Simülasyonu**: Sabit taşıyıcı, frekans atlamalı (Frequency Hopping) ve darbeli (Pulse) sinyal tiplerini simüle eder.
--   **Gelişmiş Denetimler**: Ayarlanabilir Kazanç, Gürültü Tabanı, Eşik Değeri ve Şelale Hızı.
--   **Otomatik Tepe Tespiti**: Belirlenen eşiği aşan sinyalleri otomatik olarak tanımlar ve günlük kaydı tutar.
+-   **Çift Modlu Çalışma**: SİMÜLASYON ve CANLI SİNYAL (Audio Input) modları.
+-   **Gelişmiş Sinyal Tipleri**: Sabit, Frekans Atlama (Frequency Hopping) ve Pulsar modülasyonları.
+-   **Kullanıcı Denetimi**: Spektrum kazancı, gürültü tabanı, eşik değeri ve şelale hızı ayarları.
+-   **Otomatik Günlükleme**: Tespit edilen frekans tepelerinin zaman damgalı kaydı.
+-   **Askeri Standart (TR)**: SIGINT/ELINT terminolojisine tam uyumlu Türkçe yerlileştirme.
 
 ## 📖 Kullanım Kılavuzu
 
-1.  `index.html` dosyasını herhangi bir modern tarayıcıda açın.
-2.  **Kontrol Paneli** üzerinden spektral hassasiyeti ayarlayın.
-3.  Anlık değişimler için **FFT Analizi** ekranını takip edin.
-4.  Sinyal geçmişi ve kaymaları (drift) için **Şelale Spektrogramı**nı izleyin.
-5.  Yakalanan frekans tepeleri için **Sinyal Tespit Günlüğü**nü kontrol edin.
+1.  `index.html` dosyasını tarayıcıda açın.
+2.  **KAYNAK** menüsünden "CANLI SİNYAL"i seçerek mikrofonunuzu bağlayın (İzin gereklidir).
+3.  **EŞİK DEĞERİ**ni ayarlayarak otomatik sinyal tespitini başlatın.
+4.  **HIZ** çubuğu ile şelale grafiğinin akışını optimize edin.
 
-## 🔬 Bilimsel Bağlam
+## ⚡ Gelişmiş Özellikler (TRL-7)
 
-Elektronik harpte **Şelale Grafiği (Waterfall Plot)**, Düşük Yakalanma Olasılığına (LPI) sahip sinyalleri takip etmek için kritiktir. Frekansı zaman ekseninde görselleştirerek, operatörlerin rastgele gürültü ile kasıtlı yayınları (kısa süreli olsalar bile) ayırt etmesine olanak tanır.
+Proje, operasyonel ortamda sistem doğrulaması (TRL-7) aşamasındadır. Yüksek performanslı canvas rendering sayesinde düşük donanımlı cihazlarda bile 60 FPS akıcılık sağlar.
 
 ---
 
 ### 🏛️ Geliştiren: [Bahattin Yunus](https://github.com/bahattinyunus)
 *Elektronik Harp ve Savunma Sistemleri Meraklısı*
 
-**TASNİF DIŞI // SADECE EĞİTİM AMAÇLIDIR**
+**TASNİF DIŞI // SADECE EĞİTİM VE ANALİZ AMAÇLIDIR**
