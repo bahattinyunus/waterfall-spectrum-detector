@@ -159,8 +159,8 @@ input[type="range"] {
     padding-left: 8px;
 }
 
-/* Buttons */
-button {
+/* Buttons & Selects */
+button, select {
     background: transparent;
     border: 1px solid var(--accent-color);
     color: var(--accent-color);
@@ -171,10 +171,25 @@ button {
     transition: all 0.2s;
 }
 
+select {
+    width: 100%;
+    background: var(--bg-color);
+}
+
 button:hover {
     background: var(--accent-color);
     color: black;
     box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.controls label {
+    font-size: 0.6rem;
+    margin-right: 5px;
+}
+
+#speed-slider {
+    width: 60px;
+    vertical-align: middle;
 }
 
 /* Footer */

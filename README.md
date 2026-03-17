@@ -1,41 +1,41 @@
-﻿# 📡 WATERSPECT: Waterfall Spectrum Detector
+﻿# 📡 WATERSPECT: Şelale Spektrum Dedektörü
 
 > [!IMPORTANT]
-> **SIGNAL INTELLIGENCE (SIGINT) TRAINING MODULE**
-> This repository contains a high-performance, web-based spectrum analysis tool designed for electronic warfare simulation and signal detection training.
+> **SİNYAL İSTİHBARATI (SIGINT) EĞİTİM MODÜLÜ**
+> Bu depo, elektronik harp simülasyonu ve sinyal tespit eğitimi için tasarlanmış yüksek performanslı, web tabanlı bir spektrum analiz aracı içerir.
 
-![WATERSPECT Banner](https://raw.githubusercontent.com/bahattinyunus/waterfall-spectrum-detector/main/assets/banner.png) *(Note: Placeholder for actual banner)*
+![WATERSPECT Banner](https://raw.githubusercontent.com/bahattinyunus/waterfall-spectrum-detector/main/assets/banner.png) *(Not: Proje görseli temsilidir)*
 
-## 🛠️ Technical Overview
+## 🛠️ Teknik Genel Bakış
 
-WATERSPECT is built using **Vanilla JavaScript** and **HTML5 Canvas** to ensure maximum performance and low-latency rendering of high-density signal data. It simulates real-time Fast Fourier Transform (FFT) analysis, providing a dual-view interface:
+WATERSPECT, yüksek yoğunluklu sinyal verilerinin düşük gecikmeli işlenmesini sağlamak için **Vanilla JavaScript** ve **HTML5 Canvas** kullanılarak geliştirilmiştir. Gerçek zamanlı Hızlı Fourier Dönüşümü (FFT) analizini simüle ederek çift görünümlü bir arayüz sunar:
 
-1.  **Real-Time FFT Analyzer**: High-speed line graph showing instantaneous signal power across the frequency spectrum.
-2.  **Historical Waterfall Spectrogram**: A scrolling time-frequency display that reveals signal patterns, drift, and persistence.
+1.  **Gerçek Zamanlı FFT Analizörü**: Frekans spektrumu üzerindeki anlık sinyal gücünü gösteren yüksek hızlı çizgi grafik.
+2.  **Tarihsel Şelale Spektrogramı**: Sinyal modellerini, kaymaları ve sürekliliği ortaya çıkaran, zaman-frekans eksenli kayan ekran.
 
-## 🚀 Key Features
+## 🚀 Öne Çıkan Özellikler
 
--   **Military-Grade UI**: Sleek, dark-themed dashboard with "Cyber-Green" and "Amber" accents.
--   **Signal Simulation**: Generates multi-carrier signals with random noise and frequency drift.
--   **Auto-Peak Detection**: Automatically identifies and logs signals exceeding the user-defined threshold.
--   **Interactive Controls**: Adjustable Gain, Noise Floor, and Detection Threshold.
--   **Zero Dependencies**: Pure web technology for instant deployment and portability.
+-   **Askeri Standartta UI**: "Siber-Yeşil" ve "Amber" vurgulu, optimize edilmiş karanlık tema dashboard.
+-   **Türkçe Yerlileştirme**: Tüm teknik terimler ve arayüz elemanları Türkçe SIGINT/ELINT standartlarına uygundur.
+-   **Sinyal Modülasyon Simülasyonu**: Sabit taşıyıcı, frekans atlamalı (Frequency Hopping) ve darbeli (Pulse) sinyal tiplerini simüle eder.
+-   **Gelişmiş Denetimler**: Ayarlanabilir Kazanç, Gürültü Tabanı, Eşik Değeri ve Şelale Hızı.
+-   **Otomatik Tepe Tespiti**: Belirlenen eşiği aşan sinyalleri otomatik olarak tanımlar ve günlük kaydı tutar.
 
-## 📖 How to Use
+## 📖 Kullanım Kılavuzu
 
-1.  Open `index.html` in any modern web browser.
-2.  Use the **Control Panel** to adjust spectral sensitivity.
-3.  Monitor the **FFT Analysis** for sudden spikes.
-4.  Observe the **Waterfall Spectrogram** to track signal history and drift.
-5.  Check the **Signal Detection Log** for captured frequency peaks.
+1.  `index.html` dosyasını herhangi bir modern tarayıcıda açın.
+2.  **Kontrol Paneli** üzerinden spektral hassasiyeti ayarlayın.
+3.  Anlık değişimler için **FFT Analizi** ekranını takip edin.
+4.  Sinyal geçmişi ve kaymaları (drift) için **Şelale Spektrogramı**nı izleyin.
+5.  Yakalanan frekans tepeleri için **Sinyal Tespit Günlüğü**nü kontrol edin.
 
-## 🔬 Scientific Context
+## 🔬 Bilimsel Bağlam
 
-In electronic warfare, a **Waterfall Plot** is essential for tracking Low Probability of Intercept (LPI) signals. By visualizing frequency over time, operators can distinguish between random noise and intentional transmissions even when the signal is extremely brief.
+Elektronik harpte **Şelale Grafiği (Waterfall Plot)**, Düşük Yakalanma Olasılığına (LPI) sahip sinyalleri takip etmek için kritiktir. Frekansı zaman ekseninde görselleştirerek, operatörlerin rastgele gürültü ile kasıtlı yayınları (kısa süreli olsalar bile) ayırt etmesine olanak tanır.
 
 ---
 
-### 🏛️ Developed by [Bahattin Yunus](https://github.com/bahattinyunus)
-*Electronic Warfare & Defense Systems Enthusiast*
+### 🏛️ Geliştiren: [Bahattin Yunus](https://github.com/bahattinyunus)
+*Elektronik Harp ve Savunma Sistemleri Meraklısı*
 
-**UNCLASSIFIED // FOR EDUCATIONAL PURPOSES ONLY**
+**TASNİF DIŞI // SADECE EĞİTİM AMAÇLIDIR**

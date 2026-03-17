@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WATERSPECT | Spectrum Intelligence</title>
+    <title>WATERSPECT | Spektrum İstihbaratı</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +12,22 @@
 <body>
     <div class="header">
         <div class="logo">
-            <span class="accent">WATERSPECT</span> // SIGINT-X
+            <span class="accent">WATERSPECT</span> // SİGİNT-X
         </div>
         <div class="telemetry">
-            <div class="tel-item">SCAN: <span id="scan-status" class="active">ACTIVE</span></div>
-            <div class="tel-item">FREQ: <span id="freq-range">0.0 - 100.0 MHz</span></div>
-            <div class="tel-item">PEAK: <span id="peak-freq" class="val">---</span></div>
+            <div class="tel-item">TARAMA: <span id="scan-status" class="active">AKTİF</span></div>
+            <div class="tel-item">FREKANS: <span id="freq-range">0.0 - 100.0 MHz</span></div>
+            <div class="tel-item">TEPE: <span id="peak-freq" class="val">---</span></div>
         </div>
     </div>
 
     <main class="dashboard">
         <section class="spectrum-module">
             <div class="module-header">
-                <h3>REAL-TIME FFT ANALYSIS</h3>
+                <h3>GERÇEK ZAMANLI FFT ANALİZİ</h3>
                 <div class="controls">
-                    <button id="toggle-scan">PAUSE</button>
-                    <button id="reset-peak">RESET PEAK</button>
+                    <button id="toggle-scan">DURAKLAT</button>
+                    <button id="reset-peak">TEPE SIFIRLA</button>
                 </div>
             </div>
             <div class="canvas-container">
@@ -37,7 +37,11 @@
 
         <section class="waterfall-module">
             <div class="module-header">
-                <h3>HISTORICAL WATERFALL SPECTROGRAM</h3>
+                <h3>TARİHSEL ŞELALE SPEKTROGRAMI</h3>
+                <div class="controls">
+                    <label>HIZ:</label>
+                    <input type="range" id="speed-slider" min="1" max="10" value="1">
+                </div>
             </div>
             <div class="canvas-container">
                 <canvas id="waterfall-canvas"></canvas>
@@ -46,31 +50,39 @@
 
         <section class="control-panel">
             <div class="panel-section">
-                <h4>SIGNAL GENERATOR</h4>
+                <h4>SİNYAL JENERATÖRÜ</h4>
                 <div class="control-group">
-                    <label>SENSITIVITY (GAIN)</label>
+                    <label>HASSASİYET (KAZANÇ)</label>
                     <input type="range" id="gain-slider" min="0" max="100" value="50">
                 </div>
                 <div class="control-group">
-                    <label>NOISE FLOOR</label>
+                    <label>GÜRÜLTÜ TABANI</label>
                     <input type="range" id="noise-slider" min="0" max="50" value="15">
+                </div>
+                <div class="control-group">
+                    <label>MODÜLASYON TİPİ</label>
+                    <select id="signal-type">
+                        <option value="fixed">SABİT TAŞIYICI</option>
+                        <option value="hop">FREKANS ATLAMALI</option>
+                        <option value="pulse">DARBELİ (PULSE)</option>
+                    </select>
                 </div>
             </div>
             <div class="panel-section">
-                <h4>SIGNAL DETECTION</h4>
+                <h4>SİNYAL TESPİTİ</h4>
                 <div class="control-group">
-                    <label>THRESHOLD</label>
+                    <label>EŞİK DEĞERİ (THRESHOLD)</label>
                     <input type="range" id="threshold-slider" min="0" max="100" value="40">
                 </div>
                 <div id="detection-list" class="log-container">
-                    <!-- Detected signals will appear here -->
+                    <!-- Tespit edilen sinyaller burada görünecek -->
                 </div>
             </div>
         </section>
     </main>
 
     <div class="footer">
-        UNCLASSIFIED // FOR SIGINT TRAINING PURPOSES ONLY // v1.0.0
+        TASNİF DIŞI // SİGİNT EĞİTİM AMAÇLIDIR // v1.1.0
     </div>
 
     <script src="app.js"></script>
